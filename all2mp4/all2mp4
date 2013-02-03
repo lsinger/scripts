@@ -1,0 +1,16 @@
+#! /bin/bash
+trap "exit 0" SIGINT SIGTERM # allow ctrl-c to about the complete loop, not only a single handbrake instance
+DIR=$1
+if [ ! -d "$DIR" ]; then
+	echo "argument is not a directory"
+	exit 0
+fi
+for filename in "$DIR"*; do
+  if [ -f "$filename" ]; then
+    title="${filename%.???}"
+    if [ "$filename" == "$title" ]; then
+      title="${filename%.????}"
+	fi
+	HandBrakeCLI -i "$filename" -o "${title}.mp4" --preset="iPad"
+  fi
+done
