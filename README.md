@@ -1,0 +1,1 @@
+Scripts (bash, ruby, others) that I found useful, at one time or the other. 
