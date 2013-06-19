@@ -1,0 +1,1 @@
+alias previewfiles='lsof -F n -p `pidof Preview` | grep /Users/`whoami` | grep -v "/Users/`whoami`/Library" | cut -c 2-'
